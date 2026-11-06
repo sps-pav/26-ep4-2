@@ -1,1 +1,21 @@
 hra
+databaze 
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS uzivatel (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    jmeno TEXT NOT NULL UNIQUE,
+    heslo_hash TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS typ_nepritele (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nazev TEXT NOT NULL UNIQUE,
+    body INTEGER NOT NULL CHECK (body >= 0),
+    zivoty INTEGER NOT NULL CHECK (zivoty > 0)
+);
+
+CREATE TABLE IF NOT EXISTS vlna (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cislo INTEGER NOT NULL UNIQUE CHECK (cislo > 0),
+    rychlost INTEGER NOT NULL CHECK (rychlost > 0)
