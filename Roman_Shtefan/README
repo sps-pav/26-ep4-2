@@ -1,0 +1,10 @@
+# 🏴‍☠️ One Piece E-Shop – Ročníkový Projekt
+
+**Autor:** Roman Shtefan  
+**Třída:** EP4  
+**Téma:** Internetový obchod s merch a sběratelskými předměty One Piece  
+
+## 🛠 Použité technologie
+* **Backend:** Node.js, Express.js
+* **Databáze:** SQLite3
+* **Frontend:** HTML5, CSS3, JavaScript (Vanilla ES6+)
