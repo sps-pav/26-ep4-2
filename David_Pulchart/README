@@ -1,1 +1,46 @@
 školní projekt hra
+import pygame
+import random
+import sys
+
+# Inicializace Pygame
+pygame.init()
+
+# Nastavení okna
+WIDTH, HEIGHT = 600, 500
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("⚡ Lightning Tempo ⚡")
+
+# Barvy (RGB)
+BG_COLOR = (13, 13, 26)
+LANE_BG = (26, 26, 58)
+BORDER_COLOR = (0, 229, 255)
+ACTIVE_COLOR = (255, 230, 0)
+TEXT_COLOR = (255, 255, 255)
+ACCENT_COLOR = (0, 229, 255)
+
+# Fonty
+font_large = pygame.font.SysFont("Segoe UI", 36, bold=True)
+font_medium = pygame.font.SysFont("Segoe UI", 24, bold=True)
+font_small = pygame.font.SysFont("Segoe UI", 18)
+
+# Herní stavy
+STATE_START = 0
+STATE_PLAYING = 1
+STATE_GAMEOVER = 2
+game_state = STATE_START
+
+# Herní proměnné
+score = 0
+lives = 3
+speed = 1200  # Čas na reakci v ms
+active_lane = None
+last_spawn_time = 0
+
+# Definice drah (klávesy a jejich pozice)
+lanes = [
+    {"key": pygame.K_a, "char": "A", "x": 120},
+    {"key": pygame.K_s, "char": "S", "x": 210},
+    {"key": pygame.K_d, "char": "D", "x": 300},
+    {"key": pygame.K_f, "char": "F", "x": 390}
+]
