@@ -1,9 +1,11 @@
 # Maturitní projekt: Cech dobrodruhů
 
 ## Téma
-e - shop
+Eshop - Online obchod zaměřený na prodej věcí určených hraní DND. 
 
 ## Technologie
+SQ lite
+python 
 
 
 ## Spuštění
