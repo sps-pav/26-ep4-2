@@ -5,7 +5,7 @@ _Auto bazar._
 
 ## Technologie
 - Python
-- HTML, CSS, PHP_
+- HTML, CSS, PHP._
 - Databáze: _SQlite_
 
 ## Spuštění
