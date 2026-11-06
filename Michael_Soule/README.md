@@ -1,7 +1,7 @@
-# Maturitní projekt: Pepa Ukázka
+# Maturitní projekt: Autobay
 
 ## Téma
-_Doplň: o čem je hra/aplikace, krátký popis._
+_Auto bazar._
 
 ## Technologie
 - Hra: _(např. Python 3 + Pygame)_
