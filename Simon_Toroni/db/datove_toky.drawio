@@ -1,0 +1,141 @@
+<mxfile host="app.diagrams.net" pages="2">
+  <diagram name="Stránka-1" id="wv1YumaPbjSKENg-x2ag">
+    <mxGraphModel dx="1414" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uz" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="uzivatele" vertex="1">
+          <mxGeometry height="104" width="260" x="40" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uz1" parent="uz" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  id : INT AUTO_INCREMENT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="uz2" parent="uz" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="jmeno : VARCHAR(50) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="uz3" parent="uz" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="heslo_hash : VARCHAR(255) NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vy" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="vysledky" vertex="1">
+          <mxGeometry height="130" width="260" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vy1" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  id : INT AUTO_INCREMENT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vy2" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  id_uzivatele : INT NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="vy3" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="skore : INT NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vy4" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="datum : DATETIME DEFAULT NOW()" vertex="1">
+          <mxGeometry height="26" width="260" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="ou" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;horizontalStack=0;resizeParent=1;collapsible=0;fontColor=#333333;" value="odznaky_uzivatelu" vertex="1">
+          <mxGeometry height="104" width="260" x="400" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ou1" parent="ou" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK, FK  id_uzivatele : INT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ou2" parent="ou" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK, FK  id_odznaku : INT" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ou3" parent="ou" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="datum_ziskani : DATETIME DEFAULT NOW()" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="od" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;horizontalStack=0;resizeParent=1;collapsible=0;fontColor=#333333;" value="odznaky" vertex="1">
+          <mxGeometry height="104" width="260" x="780" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="od1" parent="od" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  id : INT AUTO_INCREMENT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="od2" parent="od" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="nazev : VARCHAR(50) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="od3" parent="od" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="potrebne_body : INT NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="uz" style="edgeStyle=entityRelationEdgeStyle;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;html=1;" target="vy" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="uz" style="edgeStyle=entityRelationEdgeStyle;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;html=1;" target="ou" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="od" style="edgeStyle=entityRelationEdgeStyle;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;html=1;" target="ou" value="N : 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uJptf4VAU0t4L9aly3BO-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Spojovací tabulka: uzivatele &lt;strong&gt;M : N&lt;/strong&gt; odznaky" vertex="1">
+          <mxGeometry height="30" width="150" x="455" y="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ai8WYE64oC79JkOxqayz" name="Stránka-2">
+    <mxGraphModel dx="1704" dy="936" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hr" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Hráč" vertex="1">
+          <mxGeometry height="78" width="220" x="40" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="hr1" parent="hr" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="člověk u počítače" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hr2" parent="hr" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="hraje hru, používá web" vertex="1">
+          <mxGeometry height="26" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="hra" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Hra" vertex="1">
+          <mxGeometry height="78" width="220" x="520" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hra1" parent="hra" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="Python + Pygame" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hra2" parent="hra" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="přihlášení, hraní, uložení" vertex="1">
+          <mxGeometry height="26" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="web" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Web" vertex="1">
+          <mxGeometry height="78" width="220" x="520" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="web1" parent="web" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="HTML + CSS + PHP" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="web2" parent="web" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="registrace, výsledky" vertex="1">
+          <mxGeometry height="26" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Databáze" vertex="1">
+          <mxGeometry height="78" width="220" x="1020" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="db1" parent="db" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="MySQL / MariaDB" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="db2" parent="db" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="uzivatele, vysledky, odznaky" vertex="1">
+          <mxGeometry height="26" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="hr" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" target="hra" value="přihlášení (jméno, heslo)&lt;br&gt;ovládání šipkami">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="hra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="hr" value="herní plocha, skóre,&lt;br&gt;výsledek hry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="hr" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" target="web" value="registrace (jméno, heslo)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="web" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="hr" value="stránka s výsledky&lt;br&gt;a odznaky">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="hra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="db" value="ověření jména a hesla&lt;br&gt;výsledek (ID uživatele, skóre)&lt;br&gt;odznak (ID uživatele, ID odznaku)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="db" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" target="hra" value="ID uživatele&lt;br&gt;/ chyba přihlášení">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="web" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="db" value="nový uživatel&lt;br&gt;(jméno, hash hesla)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="db" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;" target="web" value="výsledky a odznaky">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

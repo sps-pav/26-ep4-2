@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Stránka-1" id="wv1YumaPbjSKENg-x2ag">
+    <mxGraphModel dx="1414" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uz" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="uzivatele" vertex="1">
+          <mxGeometry height="104" width="260" x="40" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uz1" parent="uz" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  id : INT AUTO_INCREMENT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="uz2" parent="uz" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="jmeno : VARCHAR(50) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="uz3" parent="uz" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="heslo_hash : VARCHAR(255) NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vy" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="vysledky" vertex="1">
+          <mxGeometry height="130" width="260" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vy1" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  id : INT AUTO_INCREMENT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vy2" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  id_uzivatele : INT NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="vy3" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="skore : INT NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="vy4" parent="vy" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="datum : DATETIME DEFAULT NOW()" vertex="1">
+          <mxGeometry height="26" width="260" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="ou" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;horizontalStack=0;resizeParent=1;collapsible=0;fontColor=#333333;" value="odznaky_uzivatelu" vertex="1">
+          <mxGeometry height="104" width="260" x="400" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ou1" parent="ou" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK, FK  id_uzivatele : INT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ou2" parent="ou" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK, FK  id_odznaku : INT" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ou3" parent="ou" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="datum_ziskani : DATETIME DEFAULT NOW()" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="od" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;horizontalStack=0;resizeParent=1;collapsible=0;fontColor=#333333;" value="odznaky" vertex="1">
+          <mxGeometry height="104" width="260" x="780" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="od1" parent="od" style="text;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  id : INT AUTO_INCREMENT" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="od2" parent="od" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="nazev : VARCHAR(50) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="od3" parent="od" style="text;align=left;verticalAlign=middle;spacingLeft=6;" value="potrebne_body : INT NOT NULL" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="uz" style="edgeStyle=entityRelationEdgeStyle;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;html=1;" target="vy" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="uz" style="edgeStyle=entityRelationEdgeStyle;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;html=1;" target="ou" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="od" style="edgeStyle=entityRelationEdgeStyle;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;html=1;" target="ou" value="N : 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uJptf4VAU0t4L9aly3BO-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Spojovací tabulka: uzivatele &lt;strong&gt;M : N&lt;/strong&gt; odznaky" vertex="1">
+          <mxGeometry height="30" width="150" x="455" y="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
