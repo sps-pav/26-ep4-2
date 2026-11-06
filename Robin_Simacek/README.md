@@ -1,7 +1,7 @@
-# Maturitní projekt: 
+# Maturitní projekt: Cech dobrodruhů
 
 ## Téma
-Eshop
+e - shop
 
 ## Technologie
 
