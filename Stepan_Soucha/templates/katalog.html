@@ -3,25 +3,19 @@
 {% block content %}
     <h1>Katalog karet</h1>
     
-    <!-- Jednoduché zarovnání karet vedle sebe -->
-    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-        
-        <!-- Tento cyklus projde všechny karty z databáze a pro každou vytvoří tento blok -->
+    <div class="katalog-grid">
         {% for karta in karty %}
-            <div style="border: 1px solid #ccc; padding: 15px; width: 220px; text-align: center; border-radius: 8px;">
-                <!-- Zobrazení obrázku z PokéAPI URL -->
-                <img src="{{ karta['obrazek_url'] }}" alt="{{ karta['nazev'] }}" style="width: 150px; height: 150px; object-fit: contain;">
-                
+            <div class="karta">
+                <img src="{{ karta['obrazek_url'] }}" alt="{{ karta['nazev'] }}">
                 <h2>{{ karta['nazev'] }}</h2>
                 <p><em>{{ karta['popis'] }}</em></p>
-                <h3 style="color: #d9534f;">{{ karta['cena'] }} Kč</h3>
+                <h3>{{ karta['cena'] }} Kč</h3>
                 <p><small>Skladem: {{ karta['kusu_skladem'] }} ks</small></p>
                 
-                <button style="padding: 10px; background-color: #5cb85c; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Přidat do košíku
-                </button>
+                <form action="{{ url_for('pridat_do_kosiku', id_produktu=karta['id']) }}" method="POST" style="margin: 0;">
+                    <button type="submit" class="btn-koupit">Přidat do košíku</button>
+                </form>
             </div>
         {% endfor %}
-        
     </div>
 {% endblock %}

@@ -2,5 +2,44 @@
 
 {% block content %}
     <h1>Nákupní košík</h1>
-    <p>Tvůj košík je zatím prázdný.</p>
+    
+    <div style="background-color: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        
+        {% if karty %}
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <!-- Vypíše všechny karty pod sebe -->
+                {% for karta in karty %}
+                    <li style="display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 15px 0;">
+                        <img src="{{ karta['obrazek_url'] }}" alt="{{ karta['nazev'] }}" style="width: 50px; height: 50px; object-fit: contain; margin-right: 20px;">
+                        <div style="flex-grow: 1;">
+                            <strong style="font-size: 18px; color: #2c3e50;">{{ karta['nazev'] }}</strong>
+                        </div>
+                        <div style="font-weight: bold; color: #00adb5; font-size: 18px;">
+                            {{ karta['cena'] }} Kč
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <h2 style="text-align: right; margin-top: 30px; color: #2c3e50;">Celkem k úhradě: {{ celkem }} Kč</h2>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 20px;">
+                <!-- Tlačítko pro vyprázdnění košíku -->
+                <form action="{{ url_for('vyprazdnit_kosik') }}" method="POST" style="margin: 0;">
+                    <button type="submit" style="background-color: #dc3545; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;">Vyprázdnit košík</button>
+                </form>
+                
+                <button style="background-color: #5cb85c; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;">Přejít k pokladně</button>
+            </div>
+            
+        {% else %}
+            <!-- Zobrazí se, pokud v košíku nic není -->
+            <div style="text-align: center; padding: 40px 0;">
+                <h3 style="color: #6c757d;">Tvůj košík je zatím prázdný.</h3>
+                <br>
+                <a href="/katalog" style="background-color: #00adb5; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold;">Zpět do katalogu karet</a>
+            </div>
+        {% endif %}
+        
+    </div>
 {% endblock %}
