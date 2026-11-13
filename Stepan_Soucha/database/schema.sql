@@ -34,6 +34,7 @@ CREATE TABLE produkt (
     cena REAL NOT NULL,
     kusu_skladem INTEGER DEFAULT 0,
     popis TEXT,
+    obrazek_url TEXT,
     FOREIGN KEY (id_kategorie) REFERENCES kategorie(id) ON DELETE RESTRICT
 );
 
