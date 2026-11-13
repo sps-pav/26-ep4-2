@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>TCG E-shop</title>
+</head>
+<body>
+    <!-- Navigační menu -->
+    <nav>
+        <a href="/">Hlavní stránka</a> | 
+        <a href="/katalog">Katalog karet</a> | 
+        <a href="/kosik">Košík</a> | 
+        <a href="/profil">Profil</a>
+    </nav>
+    
+    <hr>
+    
+    <!-- Zde se bude dynamicky měnit obsah podle toho, na co uživatel klikne -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

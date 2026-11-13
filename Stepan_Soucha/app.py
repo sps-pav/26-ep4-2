@@ -1,22 +1,22 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Tohle bude hlavní stránka e-shopu"
+    return render_template('index.html')
 
 @app.route('/katalog')
 def katalog():
-    return "Tady bude výpis TCG karet a příslušenství"
+    return render_template('katalog.html')
 
 @app.route('/kosik')
 def kosik():
-    return "Zde bude nákupní košík"
+    return render_template('kosik.html')
 
 @app.route('/profil')
 def profil():
-    return "Tady bude přihlášení a profil uživatele"
+    return render_template('profil.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
