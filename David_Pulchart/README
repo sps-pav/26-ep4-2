@@ -44,3 +44,22 @@ lanes = [
     {"key": pygame.K_d, "char": "D", "x": 300},
     {"key": pygame.K_f, "char": "F", "x": 390}
 ]
+def reset_game():
+    global score, lives, speed, active_lane, last_spawn_time, game_state
+    score = 0
+    lives = 3
+    speed = 1200
+    active_lane = None
+    game_state = STATE_PLAYING
+    spawn_lightning()
+
+def spawn_lightning():
+    global active_lane, last_spawn_time
+    active_lane = random.choice(lanes)
+    last_spawn_time = pygame.time.get_ticks()
+
+# Hlavní smyčka hry
+clock = pygame.time.Clock()
+
+while True:
+    current_time = pygame.time.get_ticks()
